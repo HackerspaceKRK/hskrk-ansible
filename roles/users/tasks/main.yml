@@ -1,0 +1,88 @@
+---
+
+# Skel
+  - name: Modify default skel
+    copy:
+      src: "files/profiles/{{ users_default_skel }}/"
+      owner: root
+      group: root
+      dest: /etc/skel
+      backup: no
+    tags: skel
+
+# Groups
+
+  - name: Create groups
+    group: name="{{ item.name }}"
+    with_items: "{{ user_groups }}"
+
+# Users
+
+  - name: Create user groups
+    group:
+      name: "{{ item.username }}"
+      gid: "{{ item.uid if item.uid is defined else omit }}"
+    with_items: "{{ users }}"
+    no_log: True
+
+  - name: Create users
+    user:
+      name: "{{ item.username }}"
+      comment: "{{ item.name if item.name is defined else item.username }}"
+      system: "{{ item.system if item.system is defined else 'no' }}"
+      group: "{{ item.group if item.group is defined else item.username }}"
+      groups: "{{ (item.groups | join(',')) if item.groups is defined else omit }}"
+      shell: "{{ item.shell if item.shell is defined else users_default_shell }}"
+      password: "{{ item.password if item.password is defined else '!' }}"
+      createhome: "{{ item.create_home if item.create_home is defined else ('no' if item.system is defined and item.system == 'yes' else 'yes') }}"
+      append: "{{ users_default_append }}"
+      home: "{{ item.home if item.home is defined else omit }}"
+      uid: "{{ item.uid if item.uid is defined else omit }}"
+    with_items: "{{ users }}"
+    no_log: True
+
+  - name: Install user's SSH keys
+    authorized_key: user="{{ item.username }}" key="{{ '\n'.join(item.ssh_keys) }}" exclusive=yes
+    when: "{{ item.ssh_keys is defined }}"
+    with_items: "{{ users }}"
+    no_log: True
+
+  - name: Copy user profile
+    copy:
+      src: "files/profiles/{{ item.profile }}/"
+      owner: "{{ item.username }}"
+      group: "{{ item.username }}"
+      dest: "{{ item.home }}"
+      backup: yes
+    when: "{{ item.profile is defined and item.home is defined }}"
+    with_items: "{{ users }}"
+    no_log: True
+
+# Admins
+
+  # @TODO add per-user ssh_key revocation list to be able to delete keys from here (or solve it different way)
+  - name: Install root's SSH keys
+    authorized_key: user="root" key="{{ '\n'.join(item.ssh_keys) }}"
+    when: "{{ item.ssh_keys is defined and item.admin is defined and item.admin }}"
+    with_items: "{{ users }}"
+    no_log: True
+
+  - name: Add admins to wheel group
+    user: name="{{ item.username }}" groups="wheel" append=yes
+    when: "{{ item.admin is defined and item.admin }}"
+    with_items: "{{ users }}"
+    no_log: True
+
+  - name: Ensure wheel group has sudo
+    lineinfile:
+      dest: /etc/sudoers
+      state: present
+      regexp: '^%wheel'
+      line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'
+
+# Deletion
+
+# @TODO disable login or delete user and group
+# @TODO remove from wheel group
+# @TODO remove keys from root

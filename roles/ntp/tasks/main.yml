@@ -1,0 +1,13 @@
+---
+  - name: Ensure ntpd is installed
+    package: name=ntp state=present
+    tags: packages
+
+  - name: Ensure ntpd is enabled
+    service: name=ntp enabled=yes state=started
+    tags: services
+
+  - name: Reconfigure ntpd
+    notify: Restart ntpd
+    template: src=templates/ntp.j2 dest=/etc/ntp.conf
+    tags: configure

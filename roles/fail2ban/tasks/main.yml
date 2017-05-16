@@ -1,0 +1,13 @@
+---
+  - name: Install fail2ban
+    apt: pkg=fail2ban state=installed
+    tags: packages
+
+  - name: Turn fail2ban on
+    service: name=fail2ban enabled=yes state=started
+    tags: services
+
+  - name: Configure fail2ban
+    template: src=templates/default.j2 dest=/etc/fail2ban/jail.d/default.conf
+    notify: Restart fail2ban
+    tags: configure

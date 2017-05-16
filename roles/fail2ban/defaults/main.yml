@@ -1,0 +1,9 @@
+fail2ban_bantime: 900
+fail2ban_maxretry: 5
+fail2ban_banaction: iptables-ipset-proto6-allports
+
+fail2ban_ignoreip:
+  - 127.0.0.1/8
+
+fail2ban_sshd: yes
+sshd_port: 22

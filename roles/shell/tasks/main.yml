@@ -1,0 +1,18 @@
+---
+  - name: Install common packages
+    apt: pkg={{ item }} state=installed
+    tags: packages
+    with_items:
+     - irssi
+     - weechat
+     - git
+     - build-essential
+     - python-setuptools
+     - python-pip
+     - python-virtualenv
+     - python-dev
+     - python3-setuptools
+     - python3-pip
+     - python3-virtualenv
+     - python3-dev
+     - virtualenv

@@ -1,0 +1,4 @@
+users_default_shell: '/bin/bash'
+users_default_append: 'yes'
+
+users_default_skel: pidpawel

@@ -1,0 +1,36 @@
+---
+  - include: cron.yml
+    tags: cron, configure
+
+  - name: Install common packages
+    apt: pkg={{ item }} state=installed
+    tags: packages
+    with_items:
+     - htop
+     - screen
+     - mc
+     - bash
+     - bash-completion
+     - logrotate
+     - iptables
+     - ipset
+     - sudo
+     - zsh
+     - iptraf-ng
+     - util-linux  # fstrim and stuff
+     - git
+     - mosh
+     - smartmontools
+
+  - name: Copy common profile.d files
+    copy: src=files/profile.d dest=/etc/profile.d
+    tags: configure
+
+  - name: Install MOTD
+    template: src=templates/motd.j2 dest=/etc/motd
+    tags: motd, configure
+
+  - name: Install locale.gen
+    copy: src=files/locale.gen dest=/etc/locale.gen
+    notify: Regenerate locale
+    tags: locale, configure

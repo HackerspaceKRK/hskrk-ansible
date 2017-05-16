@@ -1,0 +1,34 @@
+---
+  - name: Install packages
+    apt: pkg="{{ item }}" state=installed
+    tags: packages
+    with_items:
+      - ssmtp
+      - bsd-mailx
+
+  - name: Add ssmtp group
+    group: name=ssmtp state=present system=yes
+    tags: users, configure
+
+  - name: Configure SSMTP
+    template: src=templates/ssmtp.j2 dest=/etc/ssmtp/ssmtp.conf group=ssmtp mode=0640
+    tags: configure
+
+  - name: Set SGID on ssmtp
+    file: path=/usr/sbin/ssmtp group=ssmtp mode=2711
+    tags: configure
+
+  - name: Disable exim and postfix
+    service: name="{{ item }}" enabled=no state=stopped
+    ignore_errors: yes
+    tags: services
+    with_items:
+      - exim
+      - postfix
+
+  - name: Uninstall exim and postfix
+    apt: name="{{ item }}" state=absent
+    tags: packages
+    with_items:
+      - exim
+      - postfix

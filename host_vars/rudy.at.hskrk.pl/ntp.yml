@@ -1,0 +1,12 @@
+
+ntp_servers:
+  - tempus1.gum.gov.pl
+  - tempus2.gum.gov.pl
+
+ntp_allowed_networks:
+  - 10.12.0.0/16
+
+ntp_broadcast:
+  - 10.12.4.0/24
+  - 10.12.5.0/24
+  - 10.12.10.0/24

@@ -1,0 +1,53 @@
+{# image_version: "P0S3-8-12-00" #}
+
+telnet_level: "0" ; 0-Disabled (default), 1-Enabled, 2-Privileged
+phone_password: ""
+
+proxy_register: "1"
+proxy1_address: "{{ cisco_phone_sip_server }}"
+proxy1_port: "{{ cisco_phone_sip_port }}"
+
+nat_enable: "0"
+timer_register_expires: "100"
+preferred_codec: "g711alaw"
+
+dial_template: "dialplan"
+
+auto_answer: 2
+
+# Setting for Message speeddial to mail box (*97)
+#messages_uri: "1233"
+
+services_url: "{{ cisco_phone_services_url }}"
+directory_url: "{{ cisco_phone_directory_url }}"
+logo_url: "{{ cisco_phone_logo_url }}"
+
+# Time Server
+sntp_mode: "unicast"
+sntp_server: "{{ ntp_server }}"
+time_zone: "CET"
+dst_offset: "1"
+dst_start_month: "April"
+dst_start_day: ""
+dst_start_day_of_week: "Sun"
+dst_start_week_of_month: "1"
+dst_start_time: "02"
+dst_stop_month: "Oct"
+dst_stop_day: ""
+dst_stop_day_of_week: "Sunday"
+dst_stop_week_of_month: "8"
+dst_stop_time: "2"
+dst_auto_adjust: "1"
+
+time_format_24hr: "1"
+date_format: "D/M/Y"
+
+dnd_control: "0"
+callerid_blocking: "2"
+anonymous_call_block: "2"
+call_waiting: "1"
+
+#Autocompletion During Dial (0-off, 1-on [default])
+autocomplete: "0"
+
+remote_party_id: 1

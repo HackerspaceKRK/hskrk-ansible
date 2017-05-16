@@ -1,0 +1,25 @@
+
+
+bash_esc: "\e"
+bash_reset: "{{ bash_esc }}[0m"
+
+bash_bold: "{{ bash_esc }}[1m"
+bash_bold_reset: "{{ bash_esc }}[21m"
+
+bash_underlined: "{{ bash_esc }}[4m"
+bash_underlined_reset: "{{ bash_esc }}[24m"
+
+bash_blink: "{{ bash_esc }}[5m"
+bash_blink_reset: "{{ bash_esc }}[25m"
+
+# Colors
+bash_default: "{{ bash_esc }}[39m"
+
+bash_black: "{{ bash_esc }}[30m"
+bash_red: "{{ bash_esc }}[31m"
+bash_green: "{{ bash_esc }}[32m"
+bash_yellow: "{{ bash_esc }}[33m"
+bash_blue: "{{ bash_esc }}[34m"
+bash_magenta: "{{ bash_esc }}[35m"
+bash_cyan: "{{ bash_esc }}[36m"
+bash_white: "{{ bash_esc }}[97m"

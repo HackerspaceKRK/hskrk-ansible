@@ -1,0 +1,26 @@
+driftfile /var/lib/ntp/ntp.drift
+
+{% for server in ntp_servers %}
+server {{ server }}
+{% endfor %}
+
+# Note that "restrict" applies to both servers and clients, so a configuration
+# that might be intended to block requests from certain clients could also end
+# up blocking replies from your own upstream servers.
+
+# By default, exchange time with everybody, but don't allow configuration.
+restrict default limited kod nomodify notrap nopeer noquery
+restrict -6 default limited kod nomodify notrap nopeer noquery
+
+# Local users may interrogate the ntp server more closely.
+restrict 127.0.0.1
+restrict ::1
+
+# Allow querying time and statistics
+{% for allowed in ntp_allowed_networks %}
+restrict {{ allowed | ipaddr('network') }} mask {{ allowed | ipaddr('netmask') }} nomodify notrap nopeer
+{% endfor %}
+
+{% for broadcast in ntp_broadcast %}
+broadcast {{ broadcast | ipaddr('broadcast') }}
+{% endfor %}

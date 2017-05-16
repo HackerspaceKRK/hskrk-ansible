@@ -1,0 +1,10 @@
+---
+  - cronvar: name=EMAIL value=root
+    notify: "Restart cron"
+  - cronvar: name=SHELL value=/bin/bash
+    notify: "Restart cron"
+  - cronvar: name=PATH value="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+    notify: "Restart cron"
+
+  - cron: name="reboot notification" special_time=reboot job="uptime | mail -s '[{{ ansible_hostname }}] reboot' root"
+  - cron: name="daily fstrim" special_time=daily job="fstrim -av"

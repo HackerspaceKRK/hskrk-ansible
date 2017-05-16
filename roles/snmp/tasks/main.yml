@@ -1,0 +1,13 @@
+---
+  - name: Ensure snmpd is installed
+    package: name=snmpd state=present
+    tags: packages
+
+  - name: Ensure snmpd is enabled
+    service: name=snmpd enabled=yes state=started
+    tags: services
+
+  - name: Reconfigure snmpd
+    notify: Restart snmpd
+    template: src=templates/snmpd.j2 dest=/etc/snmp/snmpd.conf
+    tags: configure

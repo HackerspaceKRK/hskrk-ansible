@@ -1,0 +1,3 @@
+snmp_listen: udp:161
+snmp_allow: 10.12.4.0/24
+snmp_contact: noc@hackerspace-krk.pl

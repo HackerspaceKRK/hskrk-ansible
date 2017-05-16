@@ -1,0 +1,13 @@
+agentAddress {{ snmp_listen }}
+
+rocommunity public  {{ snmp_allow }}
+
+sysLocation    {{ ansible_fqdn }}
+sysContact     {{ snmp_contact }}
+
+sysServices    72
+
+disk       /
+includeAllDisks  10%
+
+load   12 10 5

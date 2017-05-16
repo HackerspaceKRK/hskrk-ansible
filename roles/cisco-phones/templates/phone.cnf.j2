@@ -1,0 +1,12 @@
+phone_label: "{{ item.name }} "
+phone_prompt: "{{ item.name }} "
+
+{% for line in item.lines %}
+line{{ loop.index }}_shortname: "{{ line.name }}"
+line{{ loop.index }}_displayname: "{{ line.sip_name if line.sip_name is defined else line.name }}"
+
+line{{ loop.index }}_name: "{{ line.sip_user }}"
+line{{ loop.index }}_authname: "{{ line.sip_user }}"
+line{{ loop.index }}_password: "{{ line.sip_password if line.sip_password is defined else cisco_phone_sip_default_password }}"
+
+{% endfor %}

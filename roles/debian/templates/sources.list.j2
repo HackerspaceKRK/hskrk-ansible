@@ -1,0 +1,24 @@
+{% if ansible_distribution_release in ('jessie', ) %}
+deb {{ debian_mirror }} {{ ansible_distribution_release }} {{ debian_channels }}
+deb-src {{ debian_mirror }} {{ ansible_distribution_release }} {{ debian_channels }}
+
+deb {{ debian_mirror }} {{ ansible_distribution_release }}-updates {{ debian_channels }}
+deb-src {{ debian_mirror }} {{ ansible_distribution_release }}-updates {{ debian_channels }}
+
+deb {{ debian_mirror }} {{ ansible_distribution_release }}-backports {{ debian_channels }}
+deb-src {{ debian_mirror }} {{ ansible_distribution_release }}-backports {{ debian_channels }}
+
+deb http://security.debian.org/ {{ ansible_distribution_release }}/updates {{ debian_channels }}
+deb-src http://security.debian.org/ {{ ansible_distribution_release }}/updates {{ debian_channels }}
+
+{% elif ansible_distribution_release == 'stretch' %}
+deb {{ debian_mirror }} stretch {{ debian_channels }}
+deb-src {{ debian_mirror }} stretch {{ debian_channels }}
+
+deb {{ debian_mirror }} stretch-updates {{ debian_channels }}
+deb-src {{ debian_mirror }} stretch-updates {{ debian_channels }}
+
+deb http://security.debian.org/ stretch/updates {{ debian_channels }}
+deb-src http://security.debian.org/ stretch/updates {{ debian_channels }}
+
+{% endif %}

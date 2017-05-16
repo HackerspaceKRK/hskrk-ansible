@@ -1,0 +1,10 @@
+---
+  - name: Install VMware tools
+    apt: pkg="{{ item }}" state=installed
+    tags: packages
+    with_items:
+      - open-vm-tools
+
+  - name: Ensure VMware tools are running
+    service: name=open-vm-tools enabled=yes state=started
+    tags: services

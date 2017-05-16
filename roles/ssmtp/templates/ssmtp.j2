@@ -1,0 +1,23 @@
+# The user that gets all the mails (UID < 1000, usually the admin)
+root={{ ssmtp_mailto }}
+
+# The mail server (where the mail is sent to), both port 465 or 587 should be acceptable
+# See also https://support.google.com/mail/answer/78799
+mailhub={{ ssmtp_server }}:{{ ssmtp_port }}
+
+# The address where the mail appears to come from for user authentication.
+rewriteDomain={{ ssmtp_from_domain }}
+
+# The full hostname
+hostname=localhost
+
+# Use SSL/TLS before starting negotiation
+UseTLS=Yes
+UseSTARTTLS=Yes
+
+# Username/Password
+AuthUser={{ ssmtp_user }}
+AuthPass={{ ssmtp_passwd }}
+
+# Email 'From header's can override the default domain?
+FromLineOverride=no

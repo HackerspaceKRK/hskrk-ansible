@@ -1,0 +1,8 @@
+ssmtp_server: gmail.com
+ssmtp_port: 587
+
+ssmtp_user: None
+ssmtp_passwd: None
+
+# ssmtp_mailto: admin@nonexistent
+ssmtp_from_domain: "{{ ansible_fqdn }}"

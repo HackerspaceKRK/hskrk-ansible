@@ -1,0 +1,38 @@
+sshd_config:
+  Protocol: 2
+  
+  UsePrivilegeSeparation: 'yes'
+
+  KeyRegenerationInterval: 3600
+  ServerKeyBits: 4096
+
+  SyslogFacility: 'AUTH'
+  LogLevel: 'INFO'
+
+  LoginGraceTime: 120
+  PermitRootLogin: 'without-password'
+  StrictModes: 'yes'
+
+  RSAAuthentication: 'yes'
+  PubkeyAuthentication: 'yes'
+
+  IgnoreRhosts: 'yes'
+  RhostsRSAAuthentication: 'no'
+  HostbasedAuthentication: 'no'
+
+  PermitEmptyPasswords: 'no'
+
+  #ChallengeResponseAuthentication no
+
+  PasswordAuthentication: 'yes'
+  KerberosAuthentication: 'no'
+  GSSAPIAuthentication: 'no'
+
+  X11Forwarding: 'yes'
+  PrintMotd: 'no'
+  PrintLastLog: 'yes'
+  TCPKeepAlive: 'yes'
+
+  MaxStartups: '10:30:60'
+
+  AcceptEnv: 'LANG LC_*'

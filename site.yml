@@ -1,0 +1,33 @@
+---
+
+- hosts: production
+  become: True
+
+  roles:
+    - role: debian
+      tags: debian
+      when: ansible_os_family == 'Debian'
+
+    - { role: common, tags: common }
+    - { role: ssmtp, tags: ssmtp, mail }
+    - { role: snmp, tags: snmp }
+    - { role: ntp, tags: ntp }
+    - { role: sshd, tags: sshd }
+    - { role: fail2ban, tags: fail2ban }
+    - { role: users, tags: users }
+
+    - role: vmware
+      tags: vmware
+      when: ansible_virtualization_type == 'VMware'
+
+- hosts: cisco_tftp
+  become: True
+
+  roles:
+    - { role: cisco-phones, tags: [cisco, configure] }
+
+- hosts: shell
+  become: True
+
+  roles:
+    - { role: shell, tags: [shell] }

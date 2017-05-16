@@ -1,0 +1,48 @@
+---
+  - name: Install sources.list file
+    template: src=templates/sources.list.j2 dest=/etc/apt/sources.list
+    notify: apt-get update
+    tags: configure, apt, repositories
+
+  - meta: flush_handlers
+
+  - name: Add apt recommendation prevent
+    copy: src=files/80prevent dest=/etc/apt/apt.conf.d/80prevent
+    tags: configure, apt
+
+  - name: "Disable rpcbind and rpc.statd"
+    service: name="{{ item }}" state=stopped enabled=no
+    tags: configure, service
+    ignore_errors: yes
+    when: leave_rpc is not defined or leave_rpc == False
+    with_items:
+      - rpcbind
+      - nfs-common
+
+  # Reboot-notifier is in jessie-backports repo!
+  # Reboot-notifier has it's own cron.daily entry
+
+  - name: Install Debian-specific software
+    package: name="{{ item }}" state=present
+    tags: packages
+    with_items:
+      - apt-listchanges
+      - unattended-upgrades
+      - debian-goodies
+      - reboot-notifier
+
+  - name: Configure apt autoupdate&upgrade
+    copy: src="files/{{ item }}" dest="/etc/apt/apt.conf.d/{{ item }}"
+    tags: configure, apt
+    with_items:
+      - 20auto-upgrades
+      - 50unattended-upgrades
+
+  - stat: path=/etc/default/grub
+    register: grub_exists
+
+  - name: Change grub timeout
+    replace: dest=/etc/default/grub regexp='.*GRUB_TIMEOUT=.*$' replace='GRUB_TIMEOUT=3' backup=yes
+    notify: Update grub
+    tags: grub
+    when: grub_exists == True

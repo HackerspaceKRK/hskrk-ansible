@@ -1,0 +1,2 @@
+debian_mirror: http://ftp.pl.debian.org/debian/
+debian_channels: main contrib non-free

@@ -1,0 +1,6 @@
+fail2ban_banaction: iptables-ipset-proto6-allports
+
+fail2ban_ignoreip:
+  - 127.0.0.1/8
+  - 80.82.28.16/29
+  - 10.12.0.0/16

@@ -1,0 +1,6 @@
+---
+  - name: Restart cron
+    service: name=cron state=restarted enabled=yes
+
+  - name: Regenerate locale
+    command: locale-gen

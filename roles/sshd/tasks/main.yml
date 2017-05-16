@@ -1,0 +1,10 @@
+---
+  - name: Ensure sshd is enabled
+    service: name=ssh enabled=yes state=started
+    tags: services
+
+  - name: Reconfigure sshd
+    notify: Restart sshd
+    lineinfile: "regexp='^(# *)?{{ item.key }} .*$' line='{{ item.key }} {{ item.value }}' dest=/etc/ssh/sshd_config backup=yes"
+    with_dict: "{{ sshd_config }}"
+    tags: configuration

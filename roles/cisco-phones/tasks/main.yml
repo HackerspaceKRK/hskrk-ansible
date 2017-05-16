@@ -1,0 +1,23 @@
+---
+
+  - name: Configure phones' default (XML)
+    template:
+      src: templates/XMLDefault.cnf.xml.j2
+      dest: "{{ tftp_dir }}/XMLDefault.cnf.xml"
+
+  - name: Configure phones' default (dumb)
+    template:
+      src: templates/SIPDefault.cnf.j2
+      dest: "{{ tftp_dir }}/SIPDefault.xml"
+
+  - name: Configure phones (XML)
+    template:
+      src: templates/phone.cnf.xml.j2
+      dest: "{{ tftp_dir }}/SEP{{ ''.join(item.mac.split(':')) }}.cnf.xml"
+    with_items: "{{ cisco_phones }}"
+
+  - name: Configure phones (dumb)
+    template:
+      src: templates/phone.cnf.j2
+      dest: "{{ tftp_dir }}/SIP{{ ''.join(item.mac.split(':')) }}.cnf"
+    with_items: "{{ cisco_phones }}"
