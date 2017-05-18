@@ -1,0 +1,18 @@
+---
+  - name: Make sure snmpd is not installed
+    opkg: name=snmpd state=absent
+
+  - name: Remove old snmpd config files
+    file: path=/etc/config/snmpd state=absent
+
+  - name: Make sure mini_snmpd is installed
+    opkg: name=mini_snmpd state=present
+
+  - name: Configure mini_snmpd
+    template: src=templates/mini_snmpd.j2 dest=/etc/config/mini_snmpd
+    notify: reload mini_snmpd
+
+  - name: Make sure mini_snmpd is enabled
+    register: mini_snmpd_enabled
+    shell: (/etc/init.d/mini_snmpd enabled || (echo "__CHANGED__" && (/etc/init.d/mini_snmpd enable || true) && /etc/init.d/mini_snmpd start)) || true
+    changed_when: "'__CHANGED__' in mini_snmpd_enabled.stdout"

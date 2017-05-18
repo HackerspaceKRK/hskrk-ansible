@@ -1,0 +1,7 @@
+---
+  - name: Configure dropbear
+    copy: src=files/dropbear dest=/etc/config/dropbear
+    notify: reload dropbear
+
+  - name: Configure authorized_keys
+    template: src=templates/authorized_keys.j2 dest=/etc/dropbear/authorized_keys

@@ -1,0 +1,4 @@
+---
+  - name: Configure dhcp
+    copy: src=files/dhcp dest=/etc/config/dhcp
+    # notify: reload dhcp

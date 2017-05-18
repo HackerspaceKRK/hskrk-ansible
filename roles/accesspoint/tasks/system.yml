@@ -1,0 +1,4 @@
+---
+  - name: Configure system
+    template: src=templates/system.j2 dest=/etc/config/system
+    notify: reload system

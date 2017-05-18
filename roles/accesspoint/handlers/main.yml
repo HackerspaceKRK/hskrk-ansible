@@ -1,0 +1,18 @@
+---
+- name: reload dropbear
+  command: /etc/init.d/dropbear restart
+
+- name: reload firewall
+  command: /etc/init.d/firewall restart
+
+- name: reload mini_snmpd
+  command: /etc/init.d/mini_snmpd restart
+
+- name: reload network
+  command: /etc/init.d/network restart
+
+- name: reload system
+  command: /etc/init.d/system reload
+
+- name: reload uhttpd
+  command: /etc/init.f/uhttpd reload

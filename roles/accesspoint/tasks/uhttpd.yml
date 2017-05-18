@@ -1,0 +1,4 @@
+---
+  - name: Configure uhttpd
+    copy: src=files/uhttpd dest=/etc/config/uhttpd
+    notify: reload uhttpd

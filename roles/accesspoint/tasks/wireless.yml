@@ -1,0 +1,5 @@
+---
+  - name: Configure wireless
+    tags: wireless
+    template: src=templates/wireless.j2 dest=/etc/config/wireless
+    notify: reload network

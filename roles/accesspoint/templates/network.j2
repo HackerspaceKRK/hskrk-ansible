@@ -1,0 +1,21 @@
+# THIS FILE IS MANAGED BY ANSIBLE
+# ANY CHANGES WILL BE LOST!
+
+
+
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd9b:3f3f:a03d::/48'
+
+config interface 'lan'
+	option type 'bridge'
+	option ifname 'eth0'
+	option proto 'dhcp'
+	option hostname 'Makaron-{{ accesspoint_location }}'
+	option ip6assign '60'
+

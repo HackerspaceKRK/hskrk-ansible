@@ -31,3 +31,13 @@
 
   roles:
     - { role: shell, tags: [shell] }
+
+
+- hosts: accesspoint
+  become: False
+  user: root
+  gather_facts: False # so we dont need python to start things goin
+
+  roles:
+    - { role: openwrt_common, tags: [accesspoint, setup]} # needed for ansible to work
+    - { role: accesspoint, tags: [accesspoint] }

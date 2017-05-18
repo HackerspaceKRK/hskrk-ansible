@@ -1,0 +1,4 @@
+---
+  - name: HS banner file
+    copy: src=files/banner_hs dest=/etc/banner_hs
+    notify: reload dropbear

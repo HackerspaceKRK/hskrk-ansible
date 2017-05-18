@@ -1,0 +1,4 @@
+---
+  - name: Configure network
+    template: src=templates/network.j2 dest=/etc/config/network
+    notify: reload network

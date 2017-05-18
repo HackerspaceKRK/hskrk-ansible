@@ -1,0 +1,5 @@
+---
+  host_name: AP-Softroom
+  accesspoint_location: Softroom
+  accesspoint_channel: 1
+  accesspoint_channel_5g: 36

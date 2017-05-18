@@ -1,0 +1,4 @@
+---
+  - name: Configure firewall
+    copy: src=files/firewall dest=/etc/config/firewall
+    notify: reload firewall

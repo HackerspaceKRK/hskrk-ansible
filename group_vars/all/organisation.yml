@@ -1,0 +1,2 @@
+organisation_name: Hackerspace Krakow
+organisation_name_noc: "{{ organisation_name }} NOC"

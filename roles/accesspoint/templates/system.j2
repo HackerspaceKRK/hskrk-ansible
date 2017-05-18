@@ -1,0 +1,20 @@
+# THIS FILE IS MANAGED BY ANSIBLE
+# ANY CHANGES WILL BE LOST!
+
+config system
+	option hostname '{{ host_name }}'
+	option timezone 'UTC'
+
+config timeserver 'ntp'
+{% for server in ntp_servers %}
+	list server '{{ server }}'
+{% endfor %}
+	option enabled '1'
+	option enable_server '0'
+
+config led 'led_wlan0'
+	option name 'WLAN0'
+	option sysfs 'mr18:blue:tricolor0'
+	option trigger 'netdev'
+	option mode 'link tx rx'
+	option dev 'wlan0'

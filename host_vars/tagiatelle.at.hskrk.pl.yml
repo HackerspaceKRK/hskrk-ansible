@@ -1,0 +1,5 @@
+---
+  host_name: AP-Hardroom
+  accesspoint_location: Hardroom
+  accesspoint_channel: 6
+  accesspoint_channel_5g: 48

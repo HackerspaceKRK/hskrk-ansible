@@ -1,0 +1,5 @@
+accesspoint_ssid: 'Hackerspace-krk'
+accesspoint_ssid_5g: 'Hackerspace-krk 5G'
+
+accesspoint_channel: 6
+accesspoint_channel_5g: 40

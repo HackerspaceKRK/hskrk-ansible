@@ -1,0 +1,11 @@
+---
+  - include: dhcp.yml
+  - include: system.yml
+  - include: uhttpd.yml
+  - include: hs_banner.yml
+  - include: dropbear.yml
+  - include: firewall.yml
+  - include: snmp.yml
+  - include: network.yml
+  - include: wireless.yml
+  - include: services.yml

@@ -1,0 +1,15 @@
+---
+  - name: Disable odhcpd service
+    register: odhcpd_disabled
+    shell: (/etc/init.d/odhcpd enabled && (echo "__CHANGED__" && /etc/init.d/odhcpd stop && /etc/init.d/odhcpd disable)) || true
+    changed_when: '"__CHANGED__" in odhcpd_disabled.stdout'
+
+  - name: Disable uhttpd
+    register: uhttpd_disabled
+    shell: (/etc/init.d/uhttpd enabled && (echo "__CHANGED__" && /etc/init.d/uhttpd stop && /etc/init.d/uhttpd disable)) || true
+    changed_when: '"__CHANGED__" in uhttpd_disabled.stdout'
+
+  - name: Disable dnsmasq
+    register: dnsmasq_disabled
+    shell: (/etc/init.d/dnsmasq enabled && (echo "__CHANGED__" && /etc/init.d/dnsmasq stop && /etc/init.d/dnsmasq disable)) || true
+    changed_when: '"__CHANGED__" in dnsmasq_disabled.stdout'

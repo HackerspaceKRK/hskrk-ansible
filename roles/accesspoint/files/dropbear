@@ -1,0 +1,10 @@
+# THIS FILE IS MANAGED BY ANSIBLE
+# ANY CHANGES WILL BE LOST!
+
+
+
+config dropbear
+	option PasswordAuth 'on'
+	option RootPasswordAuth 'on'
+	option Port         '22'
+	option BannerFile   '/etc/banner_hs'

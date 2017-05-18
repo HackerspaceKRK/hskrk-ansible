@@ -1,0 +1,20 @@
+---
+  # Just to make things going
+  
+  - name: Make sure python is installed
+    raw: test -e /usr/bin/python || (echo '__CHANGED__' && opkg update && opkg install python python-base)
+    register: install_python
+    changed_when: "'__CHANGED__' in install_python.stdout"
+
+  - name: Make sure python-logging is installed
+    raw: opkg install python-logging
+    register: install_python_logging
+    changed_when: "'is up to date.' not in install_python_logging.stdout"
+
+  - name: Make sure python-openssl is installed
+    raw: opkg install python-openssl
+    register: install_python_openssl
+    changed_when: "'is up to date.' not in install_python_openssl.stdout"
+
+  - name: Make sure python-distutils is installed
+    opkg: name=python-distutils state=present

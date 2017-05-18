@@ -1,0 +1,10 @@
+# THIS FILE IS MANAGED BY ANSIBLE
+# ANY CHANGES WILL BE LOST!
+
+{% for user in users %}
+{% if user.admin is defined and user.admin %}
+{% for ssh_key in user.ssh_keys %}
+{{ ssh_key }}
+{% endfor %}
+{% endif %}
+{% endfor %}
