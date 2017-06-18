@@ -21,6 +21,7 @@
      - git
      - mosh
      - smartmontools
+     - net-tools
 
   - name: Copy common profile.d files
     copy: src=files/profile.d dest=/etc/profile.d
