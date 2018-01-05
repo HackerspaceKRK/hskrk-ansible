@@ -13,11 +13,11 @@
   - name: Configure phones (XML)
     template:
       src: templates/phone.cnf.xml.j2
-      dest: "{{ tftp_dir }}/SEP{{ ''.join(item.mac.split(':')) }}.cnf.xml"
+      dest: "{{ tftp_dir }}/SEP{{ (''.join(item.mac.split(':'))).upper() }}.cnf.xml"
     with_items: "{{ cisco_phones }}"
 
   - name: Configure phones (dumb)
     template:
       src: templates/phone.cnf.j2
-      dest: "{{ tftp_dir }}/SIP{{ ''.join(item.mac.split(':')) }}.cnf"
+      dest: "{{ tftp_dir }}/SIP{{ (''.join(item.mac.split(':'))).upper() }}.cnf"
     with_items: "{{ cisco_phones }}"
