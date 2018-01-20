@@ -1,0 +1,11 @@
+---
+  - stat: path=/etc/rsyslog.conf
+    register: rsyslog_conf
+
+  - name: Edit /etc/rsyslog.conf
+    when: rsyslog_conf.stat.exists
+    lineinfile:
+      path: /etc/rsyslog.conf
+      regexp: '(.*)LOGTORUDY$'
+      line: '*.*          @@{{rsyslogd_host}} #LOGTORUDY'
+    notify: "Restart rsyslog"

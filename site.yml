@@ -41,3 +41,10 @@
   roles:
     - { role: openwrt_common, tags: [accesspoint, setup]} # needed for ansible to work
     - { role: accesspoint, tags: [accesspoint] }
+
+- hosts: gather_logs
+  become: True
+  roles:
+    - role: send_logs
+      tags: logs
+      when: "'rudy' not in inventory_hostname"
