@@ -1,4 +1,4 @@
-
+---
 user_groups:
   - name: wheel
 
@@ -55,16 +55,15 @@ users:
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGQJ5nWxgbw2pSbN2posHPEzLdH30a6+avCZQ/u+RJ5++lejctcQLxFQMCcKGq/yFWzSpVYh6/VChfa3CqY5Bjnmse8MqGi/MOud534ow8nUtVGTU/WR/+IG9fM+pbDwxeukpWv261WB4tmOGKkxWWetbmkQ9bTRNIArbRJwsSVKsBqCAAt9XRda3hMbcvkjvHrNmwifyfWNbM1eJ+WKyLOA3+SfBG2t/LcPrBfiqLoAcDHZJ2fC/RYBzF0y7Yw+smmtgAH0/dTQNZSNjCAqa0TS3gBDYTh6EMPTdqmelzsQcX6mrpYgtoswlyx2+cbONOohTxgzMUcOyYWmHM/q1V teeed@teeeddell
       - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAuShtOIA+EnOCkZxtojxjzERP3VCI/LEZRvNobZstsHqm+LZS8zNPgfnWOTzXM/Kj6xynqKbzbq9RBk8e+zrOft8a5ty+6q2v6wU+V1qe5rYzWMNlG9t6X5sg0GQzMp0v9eHZW1eIzX3iAn0i8GZufnzfUOAekggpMhGiX35e7sc= teeed@teeed RSA
-  - username: bell
+
+  - username: lenwe
 
     admin: True
 
-    name: Kuba Kowalik
-    password: $6$1TY.F8BSdUEIvKfX$LdKg3YbDdPM0eM4xUzeo9URnuveIvY941EMhPGhy//lo/oCJ5Acs7RhfqH59Sh00ENASud9YFHnRanGMaUQ8n/
+    name: Jakub Kramarz
+    password: $6$gf20.ZGL$35en3KsxG59q2DT7CpGoziEZ0fil2Ei64xrQysHUSNeK5qHcNkQ8KJurPp1m.kd9vNAwWcTI.5F2d6wMEGstb.
 
-    home: /home/bell
+    home: /home/lenwe
 
     ssh_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyECXxGq3mrUYw63KTW+KkTJlcgPBp2jj9cq3u5Ozpj3dRAowHVbEPo8ndcSDwgCld2VaawIQ4MHnk8Zh9S52iGQKHmh8eac+Ioz8Y+hQGNhrM+EAah+huor1F3HJDBC08JeQdnCpV6VA1iQQAbqYMLzPMEdq7gvWneHYXtLS3WKX3rzuCguSf7/QD7w7I3+k8tBTMPE7AVrjd2F5bB373rtOXm1larE70xz90PY6diNZWeMJDp9FCG8Ikt84JuJaWHAKEp+Qdh/Z1bqjQeVWQT9l4B4u3KYbCiHIHJxfU7G3Wsrj7fzj5WVRb8a+JDseqlzPYZ8tr/WMJ/8FlhRel bell@asgard
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIQ5T0L0nMEY4W2Z3Gt6LEBeQoK/ZFa4Ww/aY/LJQswP41P1uYat02A0WlGRp/xha9/uFXcpotOtBNYUY1SIeMM9y8usibuv/CmBRIxnyWaleWOuZQKuGeatiqDoOD/wlAeOXSRvgKNGB+KZZrdbxOKzI794QQvT7AHQ1f/Y+syD8CWPFx81AWgXKw8bFiGNPmnNGo+xn/f0MCh4CbFKiQtSO+G04xDLAChL3dNtQ7ewbDfxxxgvuTG3dQKh091GreZ5vDzeGwui3LBnO8x8GP5/a/bUU5UpAqpXtOZRwBSHLSP7t9g5r2MzVnYBjo29+DLRnrRhaTzKFFW65nuB3f bell@alfheim
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDIeUbnWGtjrbEzTxm+gjmnQnKtFkwAOpoLjhKC/kxy3x2T0CuQx2UGUwQFXsvq3FhHUwBMr+QDG6qYjVZy6afTv60yfeOK2/SW8anoTSUduH6YaEU5nXNpkU0biSA2zyBVjtLZ0Fx91qu7UoO1nrNom6n6BdLHHlrBNlzfgrgELxxPKXW2a2R8ILsw15YDWjP3SX3R42aWc9LhD3dOMhngLoXW0R4YeM+GqgUPk6NZwmiy8xaq3fgq98ImuS9ggsp/S8kXpLQruPaKvwN/l9aZngvMA5EkHy2W/rN1NYZIzXU2lmmLgT2ifkhVs+rYHDJbxq+KzX78ooV6ws1h0cNP bell@muspeheim
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCX8Bv5ZsA4gWSeRVjGYv16hLDk2Mm+uKe3CAqRwuSCheCmbnZAhVgz9rf129OjD1lPGesjxUV52WzKpgUMSGNml5KZBWP6EZG2aKYiJoJzw4nxD47zp/qa0EiYau0233dw6dPb8kM8saMJmaFb890Lf+je1SzC1z4EM8hUD2Y1g0W7Hps46ilG7uWZXMnG48HFlAkXpw6/HP+O4M2kCnercE06hBZb3D2tqZKBzQwWLUp15BQOagLP13lFujCC3VKegpeAeY1GL61VNzbo6HJzk10uWpQO6COWS/chZmUAcfAh+MBGscJpyUdULZyA7K2jc4Nnr48d/18OHVjGTXZt jakub@hackerspace-krk.pl
