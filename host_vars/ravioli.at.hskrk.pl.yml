@@ -1,5 +1,5 @@
 ---
   host_name: AP-Magazynek
   accesspoint_location: Magazynek
-  accesspoint_channel: 3
+  accesspoint_channel: 1
   accesspoint_channel_5g: 56
