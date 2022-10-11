@@ -67,3 +67,15 @@ users:
 
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCX8Bv5ZsA4gWSeRVjGYv16hLDk2Mm+uKe3CAqRwuSCheCmbnZAhVgz9rf129OjD1lPGesjxUV52WzKpgUMSGNml5KZBWP6EZG2aKYiJoJzw4nxD47zp/qa0EiYau0233dw6dPb8kM8saMJmaFb890Lf+je1SzC1z4EM8hUD2Y1g0W7Hps46ilG7uWZXMnG48HFlAkXpw6/HP+O4M2kCnercE06hBZb3D2tqZKBzQwWLUp15BQOagLP13lFujCC3VKegpeAeY1GL61VNzbo6HJzk10uWpQO6COWS/chZmUAcfAh+MBGscJpyUdULZyA7K2jc4Nnr48d/18OHVjGTXZt jakub@hackerspace-krk.pl
+
+  - username: hbrylkowski
+
+    admin: True
+
+    name: Hubert Bryłkowski
+    password: $6$6PMQpJlFfDvXmfTx$kgJ.AynvVLJwESEpNlcuBk5a6OA8Ic8Z7JUl4XpTARA5xIIjhyz4iBL6zSumvGH9e02batogJ1NcaPpRnk8Gt0
+
+    home: /home/hbrylkowski
+
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCs2PwEKwyNXiqWTyC0NRs5DshIwf0jaaZV20VHoXcIb7KmR86ymCYxtNrtz4aMm+9+J1kSdZYgR6e7EmyzPcu7AUjzEaIHyrWL+BpRntjI5RdcJgsFfhv/eMdGB6Df6Aq/D+VSJ8VNhZedeRdIUcFukFTr3ubwGnMY6NPPNMlgnMF7QI60NIn/zEqz/60fLCspU3y1tWJA3Q10aEtmYvTBQ1e3AMFyfuDnMaqzuj2oausHQj4D/KRw/JEhznh1Lkv8nZtaikYeML5EByxfI8AzVhOpRa3fQTpkNssPg5o4M/6gdwyjIcubO3BcUqa8GtZN4+P/aiVEzDA1YUFzxZOJ
